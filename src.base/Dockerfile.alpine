@@ -19,7 +19,7 @@ RUN \
     rm -rf \
       "${HOME}/.cache" \
        /var/cache/apk/* \
-       /var/lib/apt/lists/*  && \
+       /var/lib/apt/lists/* \
     && \
     \
     echo "===> Adding hosts for convenience..."  && \

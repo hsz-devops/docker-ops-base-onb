@@ -26,8 +26,9 @@ RUN \
     apt-get clean              -y && \
     rm -rf \
       "${HOME}/.cache" \
-      /var/lib/apt/lists/*  && \
-    \
+       /var/cache/apk/* \
+       /var/lib/apt/lists/* \
+    && \
     \
     echo "===> Adding hosts for convenience..."  && \
     mkdir -p /etc/ansible                        && \
@@ -56,4 +57,4 @@ ONBUILD  RUN  \
 
 # default command: display Ansible version
 CMD \
-    ansible-playbook --version | head -n 1 
+    ansible-playbook --version | head -n 1
