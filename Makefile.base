@@ -12,7 +12,7 @@ build-base: build-alpine-base build-ubuntu-base
 
 build-alpine-base: check-env-base
 	cd $(THIS_DIR)src.base ;\
-	docker build $(BUILD_CACHE) -f Dockerfile.alpine \
+	docker build $(BUILD_CACHE) -f Dockerfile.alpine34 \
 			-t $(DH_ID_base):alpine \
 			-t $(DH_ID_base):alpine-${TAG_VERSION} \
 			-t $(DH_ID_base):alpine34 \
