@@ -24,6 +24,8 @@ build-alpine-base-34: check-env-base
 build-alpine-base-37: check-env-base
 	cd $(THIS_DIR)src.base ;\
 	docker build $(BUILD_CACHE) -f Dockerfile.alpine37 \
+			-t $(DH_ID_base):alpine \
+			-t $(DH_ID_base):alpine-${TAG_VERSION} \
 			-t $(DH_ID_base):alpine37 \
 			-t $(DH_ID_base):alpine37-${TAG_VERSION} \
 			. \
@@ -33,8 +35,6 @@ build-alpine-base-37: check-env-base
 build-alpine-base-edge: check-env-base
 	cd $(THIS_DIR)src.base ;\
 	docker build $(BUILD_CACHE) -f Dockerfile.alpineedge \
-			-t $(DH_ID_base):alpine \
-			-t $(DH_ID_base):alpine-${TAG_VERSION} \
 			-t $(DH_ID_base):alpineedge \
 			-t $(DH_ID_base):alpineedge-${TAG_VERSION} \
 			. \
