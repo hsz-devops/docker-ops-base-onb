@@ -24,7 +24,11 @@ RUN \
     \
     echo "===> Adding hosts for convenience..."  && \
     mkdir -p /etc/ansible                        && \
-    echo 'localhost' > /etc/ansible/hosts        && \
+    echo 'localhost ' > /etc/ansible/hosts        && \
+    mkdir -p /etc/ansible/host_vars              && \
+    touch                                                  /etc/ansible/host_vars/localhost.yml && \
+    echo "ansible_connection:         local"            >> /etc/ansible/host_vars/localhost.yml && \
+    echo "ansible_python_interpreter: /usr/bin/python3" >> /etc/ansible/host_vars/localhost.yml && \
     \
     echo "OK!"
 
@@ -42,7 +46,7 @@ ONBUILD  COPY  .  /tmp/ops
 ONBUILD  WORKDIR  /tmp/ops
 ONBUILD  RUN  \
               echo "===> Diagnosis: host information..."  && \
-              ansible -c local -m setup all
+              ansible -m setup localhost
 
 # default command: display Ansible version
 CMD \
