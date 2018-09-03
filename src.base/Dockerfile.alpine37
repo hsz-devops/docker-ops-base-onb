@@ -24,7 +24,7 @@ RUN \
     \
     echo "===> Adding hosts for convenience..."  && \
     mkdir -p /etc/ansible                        && \
-    echo 'localhost ' > /etc/ansible/hosts        && \
+    echo 'localhost' > /etc/ansible/hosts        && \
     mkdir -p /etc/ansible/host_vars              && \
     touch                                                  /etc/ansible/host_vars/localhost.yml && \
     echo "ansible_connection:         local"            >> /etc/ansible/host_vars/localhost.yml && \

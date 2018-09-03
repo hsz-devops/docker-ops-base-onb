@@ -3,7 +3,7 @@
 # - updates some SSL stuff everytime is used in another image
 # - copies . to /tmp/ops
 
-FROM ez123/ops-base:alpine34
+FROM ez123/ops-base:alpine38
 MAINTAINER HighSkillz <webdev@highskillz.com>
 
 RUN \
